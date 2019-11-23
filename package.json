@@ -1,0 +1,44 @@
+{
+  "name": "homework_markup_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.4.3"
+  },
+  "devDependencies": {
+    "stylelint": "^11.1.1",
+    "stylelint-config-standard": "^19.0.0"
+  },
+  "scripts": {
+    "test-js": "eslint --config .eslintrc.js ./test/**/*.js",
+    "test-css": "stylelint --config .stylelintrc ./test/**/*.{css,scss}"
+  },
+  "lint-staged": {
+    "*.css": [
+      "stylelint --config .stylelintrc ./*.css",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --config .eslintrc.js ./*.js",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "author": "",
+  "license": "ISC"
+}
